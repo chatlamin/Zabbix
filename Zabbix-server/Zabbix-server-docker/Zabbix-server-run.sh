@@ -1,0 +1,21 @@
+docker run --name zabbix-server-mysql \
+    --tty \
+    --detach \
+    --env DB_SERVER_HOST="mysql-server" \
+    --env MYSQL_DATABASE="zabbix" \
+    --env MYSQL_USER="zabbix" \
+    --env MYSQL_PASSWORD="zabbix_pwd" \
+    --env MYSQL_ROOT_PASSWORD="root_pwd" \
+    --env ZBX_JAVAGATEWAY="zabbix-java-gateway" \
+    --volume /etc/localtime:/etc/localtime:ro \
+    --volume /etc/timezone:/etc/timezone:ro \
+    --volume /home/docker/containers/zabbix/alertscripts:/usr/lib/zabbix/alertscripts:ro \
+    --volume /home/docker/containers/zabbix/externalscripts:/usr/lib/zabbix/externalscripts:ro \
+    --volume /home/docker/containers/zabbix/modules:/var/lib/zabbix/modules:ro \
+    --volume /home/docker/containers/zabbix/enc:/var/lib/zabbix/enc:ro \
+    --volume /home/docker/containers/zabbix/ssh_keys:/var/lib/zabbix/ssh_keys:ro \
+    --volume /home/docker/containers/zabbix/mibs:/var/lib/zabbix/mibs:ro \
+    --link mysql-server:mysql \
+    --link zabbix-java-gateway:zabbix-java-gateway \
+    --publish 10051:10051 \
+    zabbix/zabbix-server-mysql:latest
