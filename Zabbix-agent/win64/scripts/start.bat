@@ -1,0 +1,1 @@
+c:\zabbix\win64\zabbix_agentd.exe --start

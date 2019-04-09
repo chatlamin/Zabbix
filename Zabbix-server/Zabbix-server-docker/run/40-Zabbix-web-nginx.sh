@@ -12,6 +12,3 @@ docker run --name zabbix-web-nginx \
     --link zabbix-server:zabbix-server \
     --publish 80:80 \
     zabbix/zabbix-web-nginx-mysql:latest
-
-# login/password:
-# Admin/zabbix
