@@ -1,6 +1,7 @@
 docker run --name zabbix-web-nginx \
     --tty \
     --detach \
+    --restart=always \
     --env DB_SERVER_HOST="zabbix-mysql" \
     --env MYSQL_DATABASE="zabbix" \
     --env MYSQL_USER="zabbix" \
