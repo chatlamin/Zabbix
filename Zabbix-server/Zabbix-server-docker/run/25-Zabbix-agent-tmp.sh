@@ -1,6 +1,3 @@
-sudo mkdir -p /home/docker/containers/zabbix-agent/config
-sudo touch /home/docker/containers/zabbix-agent/config/zabbix_agentd.conf
-
 docker run --name zabbix-agent \
     --detach \
     --restart=always \

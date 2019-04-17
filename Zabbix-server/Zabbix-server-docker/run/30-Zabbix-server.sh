@@ -1,6 +1,3 @@
-sudo mkdir -p /home/docker/containers/zabbix-server/config
-sudo touch /home/docker/containers/zabbix-server/config/zabbix_server.conf
-
 docker run --name zabbix-server \
     --tty \
     --detach \
@@ -22,10 +19,11 @@ docker run --name zabbix-server \
     --volume /home/docker/containers/zabbix-server/config/zabbix_server.conf:/etc/zabbix/zabbix_server.conf \
     --link zabbix-mysql:zabbix-mysql \
     --link zabbix-java-gateway:zabbix-java-gateway \
+    --link zabbix-agent:zabbix-agent \
     --publish 10051:10051 \
     zabbix/zabbix-server-mysql:latest
 
-без zabbix-java-gateway
+??? zabbix-java-gateway
 
 docker run --name zabbix-server \
     --tty \
