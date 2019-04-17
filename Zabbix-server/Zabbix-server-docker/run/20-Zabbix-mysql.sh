@@ -1,7 +1,7 @@
 docker run --name zabbix-mysql \
     --tty \
     --detach \
-    --restart=always \
+    --net zabbix-net \
     --volume /etc/localtime:/etc/localtime:ro \
     --volume /etc/timezone:/etc/timezone:ro \
     --volume /home/docker/containers/zabbix-mysql:/var/lib/mysql \

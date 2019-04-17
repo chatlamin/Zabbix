@@ -1,7 +1,7 @@
 docker run --name zabbix-server \
     --tty \
     --detach \
-    --restart=always \
+    --net zabbix-net \
     --env DB_SERVER_HOST="zabbix-mysql" \
     --env MYSQL_DATABASE="zabbix" \
     --env MYSQL_USER="zabbix" \
@@ -17,18 +17,15 @@ docker run --name zabbix-server \
     --volume /home/docker/containers/zabbix-server/ssh_keys:/var/lib/zabbix/ssh_keys:ro \
     --volume /home/docker/containers/zabbix-server/mibs:/var/lib/zabbix/mibs:ro \
     --volume /home/docker/containers/zabbix-server/config/zabbix_server.conf:/etc/zabbix/zabbix_server.conf \
-    --link zabbix-mysql:zabbix-mysql \
-    --link zabbix-java-gateway:zabbix-java-gateway \
-    --link zabbix-agent:zabbix-agent \
     --publish 10051:10051 \
     zabbix/zabbix-server-mysql:latest
 
-??? zabbix-java-gateway
+без zabbix-java-gateway
 
 docker run --name zabbix-server \
     --tty \
     --detach \
-    --restart=always \
+    --net zabbix-net \
     --env DB_SERVER_HOST="zabbix-mysql" \
     --env MYSQL_DATABASE="zabbix" \
     --env MYSQL_USER="zabbix" \
@@ -43,6 +40,5 @@ docker run --name zabbix-server \
     --volume /home/docker/containers/zabbix-server/ssh_keys:/var/lib/zabbix/ssh_keys:ro \
     --volume /home/docker/containers/zabbix-server/mibs:/var/lib/zabbix/mibs:ro \
     --volume /home/docker/containers/zabbix-server/config/zabbix_server.conf:/etc/zabbix/zabbix_server.conf \
-    --link zabbix-mysql:zabbix-mysql \
     --publish 10051:10051 \
     zabbix/zabbix-server-mysql:latest

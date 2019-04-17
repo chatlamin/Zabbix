@@ -1,7 +1,7 @@
 docker run --name zabbix-agent \
     --detach \
-    --restart=always \
     --privileged \
+    --net zabbix-net \
     --volume /proc:/data/proc \
     --volume /sys:/data/sys \
     --volume /dev:/data/dev \
