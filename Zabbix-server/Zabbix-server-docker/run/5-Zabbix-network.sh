@@ -1,1 +1,1 @@
-sudo docker network create zabbix-net
+docker network create zabbix-net
