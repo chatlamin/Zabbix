@@ -9,5 +9,6 @@ docker run --name zabbix-mysql \
     --env MYSQL_USER="zabbix" \
     --env MYSQL_PASSWORD="zabbix_pwd" \
     --env MYSQL_ROOT_PASSWORD="root_pwd" \
+    --publish 3306:3306 \
     mysql:5.7 \
     --character-set-server=utf8 --collation-server=utf8_bin
